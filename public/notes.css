@@ -1,0 +1,29 @@
+html {
+    overflow-y:scroll;
+}
+body {
+    padding-top:50px;
+}
+table {
+    margin: 0px auto;
+    align:center;
+    width:90%;
+}
+form {
+    display: inline;
+}
+label {
+    font-size:22px;
+    text-align:center;
+}
+#note-list {
+    float: left;
+    margin-bottom:30px;
+    color:blue;
+}
+.titles {
+    font-size:35px;
+}
+.error {
+    color:red;
+}

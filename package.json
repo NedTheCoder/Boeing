@@ -1,0 +1,14 @@
+{
+  "name"         : "BoeingNotes",
+  "version"      : "1.0.0",
+  "description"  : "Simple application for managing notes.",
+  "main"         : "server.js",
+  "author"       : "Nenad Ivanovic",
+  "dependencies" : {
+    "express"    : "~4.7.2",
+    "morgan"     : "~1.2.2",
+    "body-parser": "~1.5.2",
+    "method-override": "~2.3.10"
+    }
+}
+

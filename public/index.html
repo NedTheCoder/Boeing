@@ -1,0 +1,87 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="boeingNotes">
+    <head>
+        <!-- META -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+        <link rel="stylesheet" href="notes.css">
+    
+        <title>Boeing Notes Application</title>
+    
+        <!-- SCROLLS -->
+        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+
+        <!-- SPELLS -->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+        <script src="core.js"></script>
+    
+    </head>
+    
+    <body ng-controller="noteController">
+        <table>
+            <col width="40%">
+            <col width="60%">
+            <tr>
+                <th class="titles">
+                    <div class="jumbotron text-center">
+                        <h1>Current note</h1>
+                    </div>
+                </th>
+
+                <th class="titles">
+                    <div class="jumbotron text-center">
+                        <h1 ng-show="notes.length != 0">List of notes</h1>
+                        <h1 ng-show="notes.length == 0">List of notes is empty. </h1>
+                    </div>
+                </th>
+            </tr>
+
+            <tr>
+                <th>
+                    <!-- Adding a new note or modifying an existing one -->
+                    <div id="note-form" class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text-center">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control input-lg text-center" maxlength=255 placeholder="Enter the note title" ng-model="currentNote.title">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control input-lg text-center" maxlength=1024 rows="7" placeholder="Enter the note content" ng-model="currentNote.content"></textarea>
+                                </div>
+            
+                                <button type="submit" class="btn btn-primary btn-lg" ng-click="createNote()">Add</button>
+                                <button type="submit" class="btn btn-primary btn-lg" ng-click="deleteNote(currentNote.title)">Delete</button>
+                                <button type="submit" class="btn btn-primary btn-lg" ng-click="updateNote()">Update</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="error-message" class="row" ng-show="showErrorMessage">
+                        <div class="col-sm-8 col-sm-offset-2 text-center">
+                            <label class="error"> {{ errorMessage }} </label>
+                        </div>
+                    </div>
+                </th>
+
+                <th>
+                    <!-- Show the list of current notes -->
+                    <div id="note-list" class="row">
+                        <div class="col-sm-4 col-sm-offset-4">
+                            <div style="font-size:30px; text-left" ng-repeat="note in notes">
+                                <label>
+                                    <label ng-click="selectNote(note)"> {{ note.title }} </label>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </th>
+            </tr>
+        </table>
+    </body>
+</html>
+
